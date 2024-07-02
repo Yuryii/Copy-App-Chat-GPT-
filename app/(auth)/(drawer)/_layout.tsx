@@ -28,7 +28,7 @@ export const CustomDrawerContent = (props: any) => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <View style={{ padding: 16, paddingBottom: bottom }}>
-        <Link href="/(auth)/(modal)/settings" asChild style={{marginBottom: 10}}>
+        <Link href="/(auth)/(modal)/setting" asChild style={{marginBottom: 10}}>
           <TouchableOpacity style={styles.footer}>
             <Image
               source={{ uri: 'https://galaxies.dev/img/meerkat_2.jpg' }}

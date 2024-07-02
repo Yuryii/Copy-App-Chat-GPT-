@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useAuth } from '@clerk/clerk-expo'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { defaultStyles } from '@/constants/Styles';
-import { Stack } from 'expo-router';
+import { Redirect, Stack } from 'expo-router';
 import HeaderDropDown from '@/components/HeaderDropDown';
 import MessageInput from '@/components/MessageInput';
 import MessageIdeas from '@/components/MessageIdeas';
@@ -25,9 +25,11 @@ const Page = () => {
   const [height, setHeight] = useState(0)
 
 
-  const [key, setKey] =useMMKVString('apiKey', Storage)
+  const [key, setKey] = useMMKVString('apiKey', Storage)
   const [organization, setOrganization] = useMMKVString('org', Storage)
   const [gptVersion, setGptVersion] = useMMKVString('gptVersion', Storage)
+
+
 
   const getCompletion = async (message: string) => {
     // Implement completion logic here
@@ -64,8 +66,8 @@ const Page = () => {
           <FlatList
             data={messages}
             keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => 
-              <ChatMessage {...item}/>
+            renderItem={({ item }) =>
+              <ChatMessage {...item} />
             }
           />
         </View>
